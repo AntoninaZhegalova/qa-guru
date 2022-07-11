@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.10.0'
+}
+
+group 'ru.zhegalova'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+allure {
+    report {
+        version.set("2.18.1")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.18.1")
+            }
+        }
+    }
+}
+
+dependencies {
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-api:5.8.2',
+            'org.junit.jupiter:junit-jupiter-params:5.8.2',
+            'io.qameta.allure:allure-selenide:2.18.1',
+            'com.codeborne:selenide:6.6.3'
+    )
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.8.2')
+}
+
+test {
+    useJUnitPlatform()
+}
