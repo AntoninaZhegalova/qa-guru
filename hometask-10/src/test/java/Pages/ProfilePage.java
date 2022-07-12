@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ProfilePage {
 
-    @Step("Открыть страниу профиля.")
+    @Step("Открыть страницу профиля.")
     public ProfilePage openProfilePage(String value) {
         Selenide.open(value);
 
@@ -23,7 +23,7 @@ public class ProfilePage {
         return this;
     }
 
-    @Step("Проветь видимость раздела 'Issues'.")
+    @Step("Проверить видимость раздела 'Issues'.")
     public ProfilePage checkIssue() {
         $("#repository-container-header").shouldHave(text("Issues")).shouldBe(visible);
 

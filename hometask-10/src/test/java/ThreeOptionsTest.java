@@ -10,35 +10,35 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-public class ThreeTestOptions extends BaseTest {
+public class ThreeOptionsTest extends BaseTest {
 
-    @DisplayName("Проверка наличия ссылки 'Issue' в репозитории - чистый selenide")
+    @DisplayName("Проверка наличия раздела 'Issue' в репозитории - чистый selenide")
     @Test
-    public void checkIssueSelenide() {
+    void checkIssueSelenide() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Selenide.open("AntoninaZhegalova");
         $(".repo").shouldHave(text("test")).click();
         $("#repository-container-header").shouldHave(text("Issues")).shouldBe(visible);
     }
 
-    @DisplayName("Проверка наличия ссылки 'Issue' в репозитории - лямбда steps")
+    @DisplayName("Проверка наличия раздела 'Issue' в репозитории - лямбда steps")
     @Test
-    public void checkIssueLSteps() {
-        step("Открыть страниу профиля.", () -> {
+    void checkIssueLSteps() {
+        step("Открыть страницу профиля.", () -> {
             Selenide.open("AntoninaZhegalova");
         });
-        step("Наити репозиторий по названию.", () -> {
+        step("Найти репозиторий по названию.", () -> {
             $(".repo").shouldHave(text("test")).click();
         });
-        step("Проветь видимость раздела 'Issues'.", () -> {
+        step("Проверить видимость раздела 'Issues'.", () -> {
             $("#repository-container-header").shouldHave(text("Issues")).shouldBe(visible);
         });
 
     }
 
-    @DisplayName("Проверка наличия ссылки 'Issue' в репозитории - @Step")
+    @DisplayName("Проверка наличия раздела 'Issue' в репозитории - @Step")
     @Test
-    public void checkIssueSteps() {
+    void checkIssueSteps() {
         ProfilePage step = new ProfilePage();
         step.openProfilePage("AntoninaZhegalova");
         step.openRepo("test");
