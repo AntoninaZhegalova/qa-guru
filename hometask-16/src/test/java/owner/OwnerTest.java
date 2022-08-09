@@ -18,7 +18,7 @@ public class OwnerTest {
     }
 
     @Test
-    public void testGitHub() {
+    public void gitHubTest() {
         String title = driver.getTitle();
         assertEquals("GitHub: Where the world builds software · GitHub", title);
     }
