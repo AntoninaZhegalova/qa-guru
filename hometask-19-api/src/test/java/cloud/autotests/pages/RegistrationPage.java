@@ -1,6 +1,7 @@
-package pages;
+package cloud.autotests.pages;
 
 import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -30,6 +31,7 @@ public class RegistrationPage {
         $("#Email").setValue(value);
         return this;
     }
+
     public RegistrationPage setPassword(String value) {
         $("#Password").setValue(value);
         return this;
@@ -51,3 +53,5 @@ public class RegistrationPage {
     }
 
 }
+
+
